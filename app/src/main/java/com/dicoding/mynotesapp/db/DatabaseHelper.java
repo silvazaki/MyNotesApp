@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.dicoding.mynotesapp.db.DatabaseContract.NoteColumns;
 
-import static com.dicoding.mynotesapp.db.DatabaseContract.NoteColumns.TABLE_NAME;
+import static com.dicoding.mynotesapp.db.DatabaseContract.TABLE_NOTE;
 
 
 /**
@@ -24,7 +24,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     " %s TEXT NOT NULL," +
                     " %s TEXT NOT NULL," +
                     " %s TEXT NOT NULL)",
-            TABLE_NAME,
+            TABLE_NOTE,
             NoteColumns._ID,
             NoteColumns.TITLE,
             NoteColumns.DESCRIPTION,
@@ -49,7 +49,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         /*
         Drop table tidak dianjurkan ketika proses migrasi terjadi dikarenakan data user akan hilang,
          */
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTE);
         onCreate(db);
     }
 }
